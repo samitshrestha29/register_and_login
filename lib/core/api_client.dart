@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:registration_login/core/api_constant.dart';
 
 class ApiClient {
-  Future(String endpoint, {String type = 'get'}) async {
+  Future request(String endpoint, {String type = 'get'}) async {
     try {
       final dio = Dio(
         BaseOptions(baseUrl: ApiConstant.baseUrl, headers: {
