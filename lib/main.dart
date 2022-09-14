@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:registration_login/feature/post/presentation/screen/screenpage.dart';
+
+import 'package:registration_login/feature/register/presentation/screen/screenpage.dart';
 
 void main() {
   runApp(const MyApp());
