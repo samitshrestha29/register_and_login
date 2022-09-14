@@ -13,8 +13,8 @@ class ApiClient {
       final result =
           type == 'get' ? await dio.get(endpoint) : await dio.post(endpoint);
       return result.data;
-    } catch (e) {
-      throw Exception(e);
+    } on DioError catch (e) {
+      throw Exception(e.message);
     }
   }
 }
