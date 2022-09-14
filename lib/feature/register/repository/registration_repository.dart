@@ -6,7 +6,7 @@ import 'package:registration_login/feature/register/data/data_source/registratio
 import 'package:registration_login/feature/register/data/model/registration_model.dart';
 
 abstract class RegistrationRepository {
-  Future<Either<AppError, List<RegistrationModel>>> postUserr();
+  Future<Either<AppError, List<RegistrationModel>>> postUser();
 }
 
 class RegistrationRepositoryIml implements RegistrationRepository {
@@ -14,7 +14,7 @@ class RegistrationRepositoryIml implements RegistrationRepository {
   RegistrationDataSource registrationDataSource;
 
   @override
-  Future<Either<AppError, List<RegistrationModel>>> postUserr() async {
+  Future<Either<AppError, List<RegistrationModel>>> postUser() async {
     try {
       final result = await registrationDataSource.postUser();
       return Right(result);
@@ -26,6 +26,6 @@ class RegistrationRepositoryIml implements RegistrationRepository {
   }
 }
 
-final repositeoryProvider = Provider<RegistrationRepository>((ref) {
+final registrationrepositoryProvider = Provider<RegistrationRepository>((ref) {
   return RegistrationRepositoryIml(ref.watch(registrationdatasourceProvider));
 });
