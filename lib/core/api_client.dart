@@ -6,9 +6,12 @@ class ApiClient {
   Future request(String endpoint, {String type = 'get'}) async {
     try {
       final dio = Dio(
-        BaseOptions(baseUrl: ApiConstant.baseUrl, headers: {
-          "Content-Type": "Aplication/json",
-        }),
+        BaseOptions(
+          baseUrl: ApiConstant.baseUrl,
+          headers: {
+            "Content-Type": "Aplication/json",
+          },
+        ),
       );
       final result =
           type == 'get' ? await dio.get(endpoint) : await dio.post(endpoint);
