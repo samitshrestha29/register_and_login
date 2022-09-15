@@ -1,11 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:registration_login/core/api_client.dart';
 import 'package:registration_login/core/api_constant.dart';
+import 'package:registration_login/feature/register/data/model/login_response_model.dart';
 
 import '../model/registration_model.dart';
 
 abstract class RegistrationDataSource {
-  Future<List<RegistrationModel>> postUser();
+  Future<RegisterResponseModel> postUser( {required RegistrationModel registrationModel});
+  
 }
 
 class RegistrationDataSourceIml implements RegistrationDataSource {
@@ -13,10 +15,13 @@ class RegistrationDataSourceIml implements RegistrationDataSource {
   ApiClient apiClient;
 
   @override
-  Future<List<RegistrationModel>> postUser() async {
-    final result = await apiClient.request(ApiConstant.register);
-    List data = result;
-    return data.map((e) => RegistrationModel.fromJson(e)).toList();
+  Future<RegisterResponseModel> postUser(
+      {required RegistrationModel registrationModel}) async {
+    final result = await apiClient.request(
+        endpoint: ApiConstant.register,
+        type: 'post',
+        data: registrationModel.toJson());
+    return RegisterResponseModel.fromJson(result);
   }
 }
 

@@ -3,10 +3,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:registration_login/core/api_error.dart';
 import 'package:registration_login/feature/register/data/data_source/registration_data_source.dart';
+import 'package:registration_login/feature/register/data/model/login_response_model.dart';
 import 'package:registration_login/feature/register/data/model/registration_model.dart';
 
 abstract class RegistrationRepository {
-  Future<Either<AppError, List<RegistrationModel>>> postUser();
+  Future<Either<AppError, RegisterResponseModel>> postUser(
+      {required RegistrationModel registrationModel});
 }
 
 class RegistrationRepositoryIml implements RegistrationRepository {
@@ -14,9 +16,11 @@ class RegistrationRepositoryIml implements RegistrationRepository {
   RegistrationDataSource registrationDataSource;
 
   @override
-  Future<Either<AppError, List<RegistrationModel>>> postUser() async {
+  Future<Either<AppError, RegisterResponseModel>> postUser(
+      {required RegistrationModel registrationModel}) async {
     try {
-      final result = await registrationDataSource.postUser();
+      final result = await registrationDataSource.postUser(
+          registrationModel: registrationModel);
       return Right(result);
     } on DioError catch (e) {
       return left(

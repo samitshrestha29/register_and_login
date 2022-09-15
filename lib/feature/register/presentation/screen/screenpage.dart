@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../data/model/registration_model.dart';
+import '../controller/registration_controller.dart';
 
 class ScreenPage extends StatefulWidget {
   const ScreenPage({Key? key}) : super(key: key);
@@ -26,14 +30,6 @@ class _ScreenPageState extends State<ScreenPage> {
           Form(
             child: Column(
               children: [
-                // TextFormField(
-                //   controller: namecontroller,
-                //   keyboardType: TextInputType.name,
-                //   textInputAction: TextInputAction.next,
-                //   decoration: const InputDecoration(
-                //     hintText: 'enter your name',
-                //   ),
-                // ),
                 customFormfield(
                   controller: namecontroller,
                   hinttext: "entre your name",
@@ -58,35 +54,34 @@ class _ScreenPageState extends State<ScreenPage> {
                   textInputType: TextInputType.visiblePassword,
                   textInputAction: TextInputAction.done,
                 ),
+                Consumer(
+                  builder: (context, ref, child) {
+                    // var registrationconrtolProvider;
+                    // final data =
+                    //     ref.watch(registrationconrtolProvider;
+                    return isloading
+                        ? const CircularProgressIndicator()
+                        : ElevatedButton(
+                            onPressed: () async {
+                              RegistrationModel registrationModel =
+                                  RegistrationModel(
+                                name: namecontroller.text,
+                                email: emailcontroller.text,
+                                password: passwordcontroller.text,
+                                repassword: repasswordcontroller.text,
+                              );
+                              ref
+                                  .read(registrationconrtolProvider.notifier)
+                                  .postuserr(registrationModel, context);
 
-                // Consumer(
-                //   builder: (context, ref, child) {
-                //     final data =
-                //         ref.watch(registrationconrtolProvider.notifier);
-                //     return isloading
-                //         ? const CircularProgressIndicator()
-                //         : ElevatedButton(
-                //             onPressed: () async {
-                //               RegistrationModel registrationModel =
-                //                   RegistrationModel(
-                //                 name: namecontroller.text,
-                //                 email: emailcontroller.text,
-                //                 password: passwordcontroller.text,
-                //                 repassword: repasswordcontroller.text,
-                //               );
-                //               ref
-                //                   .read(registrationconrtolProvider.notifier)
-                //                   .postuserr();
-                //               log(registrationModel.toString());
-                //               ScaffoldMessenger.of(context).showSnackBar(
-                //                   const SnackBar(content: Text('registed')));
-                //               setState(() {
-                //                 isloading = true;
-                //               });
-                //             },
-                //             child: const Text('Button'));
-                //   },
-                // ),
+                              setState(() {
+                                isloading = true;
+                              });
+                            },
+                            child: const Text('Button'),
+                          );
+                  },
+                ),
               ],
             ),
           ),
