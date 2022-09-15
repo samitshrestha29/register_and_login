@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:registration_login/feature/data/model/registration_model.dart';
 import 'package:registration_login/feature/register/repository/registration_repository.dart';
+import '../../data/model/registration_model.dart';
 
 class RegistrationDataSourceNotifier
     extends StateNotifier<AsyncValue<List<RegistrationModel>>> {
