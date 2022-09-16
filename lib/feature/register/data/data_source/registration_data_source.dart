@@ -3,7 +3,7 @@ import 'package:registration_login/core/api_client.dart';
 import 'package:registration_login/core/api_constant.dart';
 import 'package:registration_login/feature/register/data/model/register_response_model.dart';
 
-import '../model/registration_model.dart';
+import '../model/registration_request_model.dart';
 
 abstract class RegistrationDataSource {
   Future<RegisterResponseModel> postUser(

@@ -4,7 +4,7 @@ import 'package:registration_login/Nextpage.dart';
 import 'package:registration_login/commons/commons.dart';
 import 'package:registration_login/feature/register/repository/registration_repository.dart';
 import '../../data/model/register_response_model.dart';
-import '../../data/model/registration_model.dart';
+import '../../data/model/registration_request_model.dart';
 
 class RegistrationDataSourceNotifier
     extends StateNotifier<AsyncValue<RegisterResponseModel>> {

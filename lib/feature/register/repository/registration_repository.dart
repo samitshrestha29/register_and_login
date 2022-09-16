@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:registration_login/core/api_error.dart';
 import 'package:registration_login/feature/register/data/data_source/registration_data_source.dart';
 import 'package:registration_login/feature/register/data/model/register_response_model.dart';
-import 'package:registration_login/feature/register/data/model/registration_model.dart';
+import 'package:registration_login/feature/register/data/model/registration_request_model.dart';
 
 abstract class RegistrationRepository {
   Future<Either<AppError, RegisterResponseModel>> postUser(

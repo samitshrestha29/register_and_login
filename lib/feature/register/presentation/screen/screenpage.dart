@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../data/model/registration_model.dart';
+import '../../data/model/registration_request_model.dart';
 import '../controller/registration_controller.dart';
 
 class ScreenPage extends ConsumerStatefulWidget {
