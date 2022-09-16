@@ -11,7 +11,7 @@ class RegisterResponseModel {
   });
   factory RegisterResponseModel.fromJson(Map<String, dynamic> json) {
     return RegisterResponseModel(
-      messege: json['messege'],
+      messege: json['message'],
       token: json['token'],
       status: json['status'],
       id: json['id'],

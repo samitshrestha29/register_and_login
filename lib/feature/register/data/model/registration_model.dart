@@ -22,6 +22,6 @@ class RegistrationModel {
         "name": name,
         "email": email,
         "password": password,
-        "password confirmation": repassword
+        "password_confirmation": repassword
       };
 }

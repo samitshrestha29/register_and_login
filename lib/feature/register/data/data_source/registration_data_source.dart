@@ -1,13 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:registration_login/core/api_client.dart';
 import 'package:registration_login/core/api_constant.dart';
-import 'package:registration_login/feature/register/data/model/login_response_model.dart';
+import 'package:registration_login/feature/register/data/model/register_response_model.dart';
 
 import '../model/registration_model.dart';
 
 abstract class RegistrationDataSource {
-  Future<RegisterResponseModel> postUser( {required RegistrationModel registrationModel});
-  
+  Future<RegisterResponseModel> postUser(
+      {required RegistrationModel registrationModel});
 }
 
 class RegistrationDataSourceIml implements RegistrationDataSource {

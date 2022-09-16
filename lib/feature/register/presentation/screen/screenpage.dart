@@ -32,7 +32,7 @@ class _ScreenPageState extends State<ScreenPage> {
               children: [
                 customFormfield(
                   controller: namecontroller,
-                  hinttext: "entre your name",
+                  hinttext: "enter your name",
                   textInputType: TextInputType.name,
                   textInputAction: TextInputAction.next,
                 ),
@@ -44,13 +44,13 @@ class _ScreenPageState extends State<ScreenPage> {
                 ),
                 customFormfield(
                   controller: passwordcontroller,
-                  hinttext: "entre your password",
+                  hinttext: "enter your password",
                   textInputType: TextInputType.visiblePassword,
                   textInputAction: TextInputAction.next,
                 ),
                 customFormfield(
                   controller: repasswordcontroller,
-                  hinttext: "Re-entre password",
+                  hinttext: "Re-enter password",
                   textInputType: TextInputType.visiblePassword,
                   textInputAction: TextInputAction.done,
                 ),

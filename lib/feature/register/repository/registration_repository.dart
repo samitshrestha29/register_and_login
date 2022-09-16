@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:registration_login/core/api_error.dart';
 import 'package:registration_login/feature/register/data/data_source/registration_data_source.dart';
-import 'package:registration_login/feature/register/data/model/login_response_model.dart';
+import 'package:registration_login/feature/register/data/model/register_response_model.dart';
 import 'package:registration_login/feature/register/data/model/registration_model.dart';
 
 abstract class RegistrationRepository {
@@ -23,7 +23,7 @@ class RegistrationRepositoryIml implements RegistrationRepository {
           registrationModel: registrationModel);
       return Right(result);
     } on DioError catch (e) {
-      return left(
+      return Left(
         AppError(message: e.message),
       );
     }
