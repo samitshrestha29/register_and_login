@@ -6,7 +6,7 @@ import 'package:registration_login/feature/register/data/model/register_response
 import '../model/registration_request_model.dart';
 
 abstract class RegistrationDataSource {
-  Future<RegisterResponseModel> postUser(
+  Future<RegisterResponseModel> postUserr(
       {required RegistrationModel registrationModel});
 }
 
@@ -15,7 +15,7 @@ class RegistrationDataSourceIml implements RegistrationDataSource {
   ApiClient apiClient;
 
   @override
-  Future<RegisterResponseModel> postUser(
+  Future<RegisterResponseModel> postUserr(
       {required RegistrationModel registrationModel}) async {
     final result = await apiClient.request(
         endpoint: ApiConstant.register,

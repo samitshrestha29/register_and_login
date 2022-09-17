@@ -9,6 +9,9 @@ class LoginResponseModel {
   });
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
     return LoginResponseModel(
-        token: json['token'], message: json['message'], status: json['status']);
+      token: json['token'],
+      message: json['message'],
+      status: json['status'],
+    );
   }
 }

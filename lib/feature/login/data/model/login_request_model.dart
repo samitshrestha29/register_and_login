@@ -1,7 +1,7 @@
-class Login {
+class LoginRequestModel {
   final String email;
   final String password;
-  Login({
+  LoginRequestModel({
     required this.email,
     required this.password,
   });

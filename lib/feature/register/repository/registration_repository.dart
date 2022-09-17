@@ -19,7 +19,7 @@ class RegistrationRepositoryIml implements RegistrationRepository {
   Future<Either<AppError, RegisterResponseModel>> postUser(
       {required RegistrationModel registrationModel}) async {
     try {
-      final result = await registrationDataSource.postUser(
+      final result = await registrationDataSource.postUserr(
           registrationModel: registrationModel);
       return Right(result);
     } on DioError catch (e) {

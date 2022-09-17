@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:registration_login/Nextpage.dart';
 import 'package:registration_login/commons/commons.dart';
+import 'package:registration_login/feature/login/presentation/screen/login_screen_page.dart';
 import 'package:registration_login/feature/register/repository/registration_repository.dart';
 import '../../data/model/register_response_model.dart';
 import '../../data/model/registration_request_model.dart';
@@ -19,7 +19,7 @@ class RegistrationDataSourceNotifier
         return snackbar(context, l.message, Colors.red);
       },
       (r) {
-        navigaton(context, const Nextpage());
+        navigaton(context, const Screen2Page());
 
         return snackbar(context, r.messege, Colors.green);
       },
