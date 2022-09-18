@@ -4,7 +4,7 @@ import 'package:registration_login/Nextpage.dart';
 import 'package:registration_login/commons/commons.dart';
 import 'package:registration_login/feature/login/data/model/login_reponse_model.dart';
 import 'package:registration_login/feature/login/data/model/login_request_model.dart';
-import 'package:registration_login/feature/login/repository/login_repository_controller.dart';
+import 'package:registration_login/feature/login/repository/login_repository.dart';
 
 class LoginDataSourceNotifier
     extends StateNotifier<AsyncValue<LoginResponseModel>> {

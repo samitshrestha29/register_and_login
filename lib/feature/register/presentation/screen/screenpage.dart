@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../commons/customformfield.dart';
 import '../../data/model/registration_request_model.dart';
 import '../controller/registration_controller.dart';
 
@@ -14,7 +15,7 @@ class ScreenPage extends ConsumerStatefulWidget {
 class _ScreenPageState extends ConsumerState<ScreenPage> {
   bool isloading = false;
 
-  TextEditingController namecontroller = TextEditingController();
+  late TextEditingController namecontroller = TextEditingController();
 
   TextEditingController emailcontroller = TextEditingController();
 
@@ -39,13 +40,11 @@ class _ScreenPageState extends ConsumerState<ScreenPage> {
                 controller: namecontroller,
                 hinttext: "enter your name",
                 textInputType: TextInputType.name,
-                textInputAction: TextInputAction.next,
               ),
               CustomFormField(
                 controller: emailcontroller,
                 hinttext: "enter your email",
                 textInputType: TextInputType.emailAddress,
-                textInputAction: TextInputAction.next,
                 validator: (value) {
                   String pattern =
                       r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -72,7 +71,6 @@ class _ScreenPageState extends ConsumerState<ScreenPage> {
                 controller: passwordcontroller,
                 hinttext: "enter your password",
                 textInputType: TextInputType.visiblePassword,
-                textInputAction: TextInputAction.next,
                 obsure: isObscure,
                 validator: (value) {
                   return value!.length < 8
@@ -139,40 +137,6 @@ class _ScreenPageState extends ConsumerState<ScreenPage> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class CustomFormField extends StatelessWidget {
-  const CustomFormField({
-    Key? key,
-    required this.controller,
-    required this.hinttext,
-    required this.textInputType,
-    required this.textInputAction,
-    this.obsure = false,
-    this.validator,
-    this.suffix = const Text(''),
-  }) : super(key: key);
-  final String hinttext;
-  final TextEditingController controller;
-  final TextInputType textInputType;
-  final TextInputAction textInputAction;
-  final String? Function(String?)? validator;
-  final bool obsure;
-  final Widget suffix;
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      validator: validator,
-      controller: controller,
-      obscureText: obsure,
-      keyboardType: textInputType,
-      textInputAction: textInputAction,
-      decoration: InputDecoration(
-        labelText: hinttext,
-        suffix: suffix,
       ),
     );
   }

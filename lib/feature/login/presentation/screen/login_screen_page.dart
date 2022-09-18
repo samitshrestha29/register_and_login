@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:registration_login/feature/login/data/model/login_request_model.dart';
-import 'package:registration_login/feature/login/presentation/controller/login_controller.dart';
+
+import '../../../../commons/customformfield.dart';
+import '../../data/model/login_request_model.dart';
+import '../controller/login_controller.dart';
 
 class Screen2Page extends ConsumerStatefulWidget {
   const Screen2Page({Key? key}) : super(key: key);
@@ -13,13 +15,10 @@ class Screen2Page extends ConsumerStatefulWidget {
 class _Screen2PageState extends ConsumerState<Screen2Page> {
   bool isloading = false;
 
-  // TextEditingController namecontroller = TextEditingController();
-
   TextEditingController emailcontroller = TextEditingController();
 
   TextEditingController passwordcontroller = TextEditingController();
 
-  // TextEditingController repasswordcontroller = TextEditingController();
   final GlobalKey<FormState> _hellokey = GlobalKey<FormState>();
   bool isObscure = true;
 
@@ -96,40 +95,6 @@ class _Screen2PageState extends ConsumerState<Screen2Page> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class CustomFormField extends StatelessWidget {
-  const CustomFormField({
-    Key? key,
-    required this.controller,
-    required this.hinttext,
-    required this.textInputType,
-    required this.textInputAction,
-    this.obsure = false,
-    this.validator,
-    this.suffix = const Text(''),
-  }) : super(key: key);
-  final String hinttext;
-  final TextEditingController controller;
-  final TextInputType textInputType;
-  final TextInputAction textInputAction;
-  final String? Function(String?)? validator;
-  final bool obsure;
-  final Widget suffix;
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      validator: validator,
-      controller: controller,
-      obscureText: obsure,
-      keyboardType: textInputType,
-      textInputAction: textInputAction,
-      decoration: InputDecoration(
-        labelText: hinttext,
-        suffix: suffix,
       ),
     );
   }
